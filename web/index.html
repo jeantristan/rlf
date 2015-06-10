@@ -36,14 +36,15 @@
 
 <body id="page-top">
 
-    <header>
+<header id="bg_test">
+	<!-- <header style="background-image: url(../img/1900x1267-foule.jpg);" id="bg_test"> -->
         <div class="header-content">
 	<div class="overlay">
             <div class="header-content-inner">
-                <h1>Crowdsourçons le Président de la République</h1>
+                <h1 id="title_test">Crowdsourçons le Président de la République</h1>
                 <hr>
                 <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <a href="#about" id="btn_test" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
         </div>
@@ -245,6 +246,51 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
 
-</body>
+<script type="text/javascript">
+var backgrounds = { 
+	foule:"1900x1267-foule.jpg",
+	crowd:"1900x1267-crowd.jpg",
+	elysee:"1900x1267-palaiselysee.jpg",
+	elyseebis:"1900x1267-palaiselysee2.jpg",
+	paume:"1900x1267-jeudepaume.jpg",
+	janvier:"1900x1267-11janvier.jpg"
+};
+var titres={
+	vache:"mort aux vaches",
+	bleus:"allez les bleus"
+};
+var btn_textes={
+	allez: "Mais allez quoi",
+	guingamp: "En avant guingamp",
+	marcel: "Fonce Marcel!"
+};
+var colors={
+	orange:"#ee4b28",
+	blue:"#286090"
+};
 
+function getUrlParameter(sParam)
+{
+	var sPageURL = window.location.search.substring(1);
+	var sURLVariables = sPageURL.split('&');
+	for (var i = 0; i < sURLVariables.length; i++) 
+	{
+		var sParameterName = sURLVariables[i].split('=');
+		if (sParameterName[0] == sParam) 
+		{
+			return sParameterName[1];
+		}
+	}
+}
+
+var bg=getUrlParameter("bg");
+var titre=getUrlParameter("titre");
+var btn_color=getUrlParameter("btn_color");
+var btn_text=getUrlParameter("btn_text");
+$("#bg_test").attr("style","background-image: url(../img/"+backgrounds[bg]+");");
+$("#title_test").html(titres[titre]);
+$("#btn_test").attr("style","background-color: "+colors[btn_color]+";");
+$("#btn_test").html(btn_textes[btn_text]);
+</script>
+</body>
 </html>
